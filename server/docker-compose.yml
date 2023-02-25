@@ -1,0 +1,10 @@
+services:
+  node:
+    container_name: node_docker_instance
+    build:
+      dockerfile: ./Dockerfile
+    stdin_open: true
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/app

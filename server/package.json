@@ -1,0 +1,30 @@
+{
+  "name": "crud-app-server",
+  "version": "1.0.0",
+  "description": "CRUD Application Service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "start-dev": "nodemon --legacy-watch ./dist/index.js",
+    "typescript": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bee-hoon/crud-app.git"
+  },
+  "author": "Ahmad Syauqi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bee-hoon/crud-app/issues"
+  },
+  "homepage": "https://github.com/bee-hoon/crud-app#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.9.5"
+  }
+}
