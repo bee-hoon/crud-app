@@ -4,7 +4,9 @@ WORKDIR /app
 
 COPY package.json ./
 COPY package-lock.json ./
+
 COPY ./src ./src
+COPY ./storage ./storage
 
 RUN npm install
 RUN npm cache clean --force
