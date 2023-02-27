@@ -6,7 +6,7 @@ const app = express();
 app.all("*", (_: Request, response: Response): void => {
   response.status(404).json({
     status: false,
-    message: "service not supported",
+    message: "request not supported",
     data: null,
   });
 });
