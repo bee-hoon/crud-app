@@ -21,10 +21,6 @@ app.listen(config.port, async () => {
   // initialize db
   try {
     await database.getdataSource()?.initialize();
-
-    if (!database.getdataSource() && database.getdataSource()?.isInitialized) {
-      console.log(`database initialized`);
-    }
   } catch (error) {
     console.log(error);
   }
