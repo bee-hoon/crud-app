@@ -1,9 +1,3 @@
-infrastructure-up:
-	docker-compose -f ./_infrastructure/docker-compose.yml up -d
-
-infrastructure-down:
-	docker-compose -f ./_infrastructure/docker-compose.yml down
-
 server-up:
 	docker-compose -f ./server/docker-compose.yml up -d
 
