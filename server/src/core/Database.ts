@@ -19,7 +19,7 @@ class Database {
     config();
   }
 
-  public initialize(): void {
+  public newDataSource(): void {
     this.dataSource = new DataSource({
       type: this.type,
       host: this.host,
