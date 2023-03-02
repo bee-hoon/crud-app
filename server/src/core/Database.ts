@@ -12,7 +12,7 @@ class Database {
     ? env.DB_USERNAME
     : "root";
   private readonly password: string = env.DB_PASSWORD ? env.DB_PASSWORD : "";
-  private readonly database: string = env.DB_NAME ? env.DB_NAME : "dev_db";
+  private readonly database: string = env.DB_NAME ? env.DB_NAME : "";
   private readonly type: string = env.DB_TYPE ? env.DB_TYPE : "mysql";
 
   constructor() {
