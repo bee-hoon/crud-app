@@ -19,7 +19,7 @@ class Database {
     config();
   }
 
-  public newDataSource(): void {
+  public async newDataSource(): Promise<void> {
     this.dataSource = new DataSource({
       type: this.type,
       host: this.host,
@@ -28,6 +28,16 @@ class Database {
       password: this.password,
       database: this.database,
     } as DataSourceOptions);
+
+    try {
+      await this.dataSource.initialize();
+
+      const result = await this.dataSource?.query("SELECT 1 + 1");
+
+      console.log(result);
+    } catch (error) {
+      throw error;
+    }
   }
 
   public getdataSource(): DataSource | null {

@@ -16,11 +16,8 @@ app.all("*", (_: Request, response: Response): void => {
 app.listen(config.port, async () => {
   const database = new Database();
 
-  database.newDataSource();
-
-  // initialize db
   try {
-    await database.getdataSource()?.initialize();
+    await database.newDataSource();
   } catch (error) {
     console.log(error);
   }
