@@ -3,6 +3,8 @@ import config from "./config";
 
 import Database from "./core/Database";
 
+import Product from "./entity/Product";
+
 const app = express();
 
 app.all("*", (_: Request, response: Response): void => {
@@ -18,6 +20,10 @@ app.listen(config.port, async () => {
 
   try {
     await database.newDataSource();
+
+    const products = await database.getdataSource()?.manager.find(Product);
+
+    console.log(products);
   } catch (error) {
     console.log(error);
   }
