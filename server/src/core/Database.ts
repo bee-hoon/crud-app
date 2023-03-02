@@ -3,6 +3,8 @@ import { DataSource, DataSourceOptions } from "typeorm";
 import { config } from "dotenv";
 import { env } from "process";
 
+import Product from "../entity/Product";
+
 class Database {
   private dataSource: DataSource | null = null;
 
@@ -27,6 +29,7 @@ class Database {
       username: this.username,
       password: this.password,
       database: this.database,
+      entities: [Product],
     } as DataSourceOptions);
 
     try {
