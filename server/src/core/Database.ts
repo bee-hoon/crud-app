@@ -6,8 +6,6 @@ import { env } from "process";
 import Product from "../entity/Product";
 
 class Database {
-  private dataSource: DataSource | null = null;
-
   private readonly host: string = env.DB_HOST ? env.DB_HOST : "127.0.0.1";
   private readonly port: number = env.DB_PORT ? +env.DB_PORT : 3306;
   private readonly username: string = env.DB_USERNAME
@@ -21,8 +19,8 @@ class Database {
     config();
   }
 
-  public async newDataSource(): Promise<void> {
-    this.dataSource = new DataSource({
+  public newDataSource(): DataSource {
+    const dataSource = new DataSource({
       type: this.type,
       host: this.host,
       port: this.port,
@@ -32,19 +30,7 @@ class Database {
       entities: [Product],
     } as DataSourceOptions);
 
-    try {
-      await this.dataSource.initialize();
-
-      const result = await this.dataSource?.query("SELECT 1 + 1");
-
-      console.log(result);
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  public getdataSource(): DataSource | null {
-    return this.dataSource ? this.dataSource : null;
+    return dataSource;
   }
 }
 
