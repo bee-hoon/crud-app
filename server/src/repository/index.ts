@@ -1,8 +1,10 @@
-import { DataSource } from "typeorm";
+import { DataSource, Repository } from "typeorm";
 
 import ProductEntity from "../entity/Product";
 
-async function initRepository(dataSource: DataSource) {
+async function initRepository(dataSource: DataSource): Promise<{
+  Product: Repository<ProductEntity>;
+}> {
   const connection = await dataSource.initialize();
   const result = await connection.query("SELECT 1 + 1");
 

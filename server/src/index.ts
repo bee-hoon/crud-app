@@ -13,6 +13,6 @@ app.all("*", (_: Request, response: Response): void => {
   });
 });
 
-app.listen(config.port, async () =>
+app.listen(config.port, (): void =>
   console.log(`server started on port ${config.port}`)
 );
